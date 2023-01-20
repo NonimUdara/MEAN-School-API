@@ -27,7 +27,7 @@ router.post('/add', (req, res, next) => {
 });
 
 router.route('/').get((req,res)=>{
-  Student.find((error,data)=>{
+    Stream.find((error,data)=>{
       if(error){
           return next (error)
       }else{
@@ -37,7 +37,7 @@ router.route('/').get((req,res)=>{
 });
 
 router.route('/read/:id').get((req,res)=>{
-  Student.findById(req.params.id,(error,data)=>{
+    Stream.findById(req.params.id,(error,data)=>{
       if(error){
           return next(error)
       }else{
@@ -47,7 +47,7 @@ router.route('/read/:id').get((req,res)=>{
 });
 
 router.route('/update/:id').put((req, res, next) => {
-  Student.findByIdAndUpdate(req.params.id, {
+    Stream.findByIdAndUpdate(req.params.id, {
       $set: req.body
   }, (error, data) => {
       if (error) {
@@ -61,7 +61,7 @@ router.route('/update/:id').put((req, res, next) => {
 })
 
 router.route('/delete/:id').delete((req, res, next) => {
-  Student.findByIdAndRemove(req.params.id, (error, data) => {
+    Stream.findByIdAndRemove(req.params.id, (error, data) => {
       if (error) {
           return next(error);
       } else {
