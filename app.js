@@ -70,6 +70,7 @@ app.use(function(err, req, res, next){
     res.status(err.statusCode).send(err.message);
 });
 
+//Emits the broadcast messages
 io.on('connection', (socket)=>{
     console.log("Some user is connected");
     socket.on('message', (msg) => {
