@@ -7,7 +7,7 @@ const Stream = require('../models/bio');
 
 // Register
 router.post('/add', (req, res, next) => {
-  let newBio = new Stream({
+  let newMeeting = new Stream({
     name: req.body.name,
     date: req.body.date,
     title: req.body.title,
@@ -17,7 +17,7 @@ router.post('/add', (req, res, next) => {
     passcode: req.body.passcode
   });
 
-  Stream.addBio(newBio, (err, bio) => {
+  Stream.add(newMeeting, (err, bio) => {
     if (err) {
       res.json({ success: false, msg: 'Failed to register student' });
     } else {

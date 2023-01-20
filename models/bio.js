@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const config = require('../config/database');
 
 // User Student
-const BioSchema = mongoose.Schema({
+const Schema = mongoose.Schema({
     name: {
         type: String,
     },
@@ -28,7 +28,7 @@ const BioSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Biology', BioSchema);
+module.exports = mongoose.model('Biology', Schema);
 
 
 // module.exports.getStudentById = function(id, callback){
@@ -40,12 +40,12 @@ module.exports = mongoose.model('Biology', BioSchema);
 //     Student.findOne(query, callback);
 //}
 
-module.exports.addBio = function(newBio, callback){
+module.exports.add = function(newMeeting, callback){
     // bcrypt.genSalt(10, (err, salt) => {
     //     bcrypt.hash(newStudent.password, salt, (err, hash) => {
             // if(err) throw err;
             // newStudent.password = hash;
-            newBio.save(callback);
+            newMeeting.save(callback);
     //     });
     // });
 }
