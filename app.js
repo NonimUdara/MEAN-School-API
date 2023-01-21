@@ -29,6 +29,7 @@ const bio = require('./routes/bio');
 const arts = require('./routes/arts');
 const commerce = require('./routes/commerce');
 const technology = require('./routes/technology');
+const resources = require('./routes/resources');
 
 // Port Number
 const port = 3000;
@@ -61,6 +62,7 @@ app.use('/bio', bio);
 app.use('/arts', arts);
 app.use('/commerce', commerce);
 app.use('/technology', technology);
+app.use('/resources', resources);
 
 // Index Route
 app.get('/', (req, res) => {
