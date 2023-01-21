@@ -7,10 +7,10 @@ router.post('/add', (req, res, next) => {
   let newResource = new Resource({
     name: req.body.name,
     rname: req.body.rname,
-    subject: req.body.title,
-    stream: req.body.duration,
-    author: req.body.link,
-    link: req.body.id
+    subject: req.body.subject,
+    stream: req.body.stream,
+    author: req.body.author,
+    link: req.body.link
   });
 
   Resource.add(newResource, (err, resource) => {
