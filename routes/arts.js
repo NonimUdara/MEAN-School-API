@@ -16,9 +16,9 @@ router.post('/add', (req, res, next) => {
 
   Stream.add(newMeeting, (err, bio) => {
     if (err) {
-      res.json({ success: false, msg: 'Failed to register student' });
+      res.json({ success: false, msg: 'Failed to Add Meeting' });
     } else {
-      res.json({ success: true, msg: 'Student registered' });
+      res.json({ success: true, msg: 'Meeting Added' });
     }
   });
 });
@@ -52,7 +52,7 @@ router.route('/update/:id').put((req, res, next) => {
           console.log(error)
       } else {
           res.json(data)
-          console.log('Student updated successfully!')
+          console.log('Meeting updated successfully!')
       }
   })
 })
