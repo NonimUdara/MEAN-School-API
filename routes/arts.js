@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Stream = require('../models/bio');
+const Stream = require('../models/art');
 
 // Register
 router.post('/add', (req, res, next) => {
