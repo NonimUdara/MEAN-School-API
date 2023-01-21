@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Stream = require('../models/commerce');
+const Stream = require('../models/technology');
 
 // Register
 router.post('/add', (req, res, next) => {
@@ -14,7 +14,7 @@ router.post('/add', (req, res, next) => {
     passcode: req.body.passcode
   });
 
-  Stream.add(newMeeting, (err, commerce) => {
+  Stream.add(newMeeting, (err, technology) => {
     if (err) {
       res.json({ success: false, msg: 'Failed to Add Meeting' });
     } else {

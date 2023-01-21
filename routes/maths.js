@@ -14,7 +14,7 @@ router.post('/add', (req, res, next) => {
     passcode: req.body.passcode
   });
 
-  Stream.add(newMeeting, (err, bio) => {
+  Stream.add(newMeeting, (err, maths) => {
     if (err) {
       res.json({ success: false, msg: 'Failed to Add Meeting' });
     } else {
