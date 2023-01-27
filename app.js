@@ -22,14 +22,14 @@ mongoose.connection.on('error', (err) => {
     console.log('Database error'+err);
 });
 
-const students = require('./routes/students');
-const teachers = require('./routes/teachers');
-const maths = require('./routes/maths');
-const bio = require('./routes/bio');
-const arts = require('./routes/arts');
-const commerce = require('./routes/commerce');
-const technology = require('./routes/technology');
-const resources = require('./routes/resources');
+const students = require('./routes/studentroute');
+const teachers = require('./routes/teacherroute');
+const maths = require('./routes/mathsroute');
+const bio = require('./routes/bioroute');
+const arts = require('./routes/artroute');
+const commerce = require('./routes/commerceroute');
+const technology = require('./routes/technologyroute');
+const resources = require('./routes/resourceroute');
 
 // Port Number
 const port = 3000;
@@ -93,4 +93,5 @@ io.on('connection', (socket)=>{
 http.listen(3000, ()=>{
     console.log("Listening On : 3000");
 })
+
 
