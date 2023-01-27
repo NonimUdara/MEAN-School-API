@@ -20,13 +20,22 @@ router.post('/register', (req, res, next) => {
     userType: "teacher"
   });
 
-  Teacher.addTeacher(newTeacher, (err, teacher) => {
-    if (err) {
-      res.json({ success: false, msg: 'Failed to register teacher' });
-    } else {
-      res.json({ success: true, msg: 'Teacher registered' });
-    }
-  });
+   Teacher.addTeacher(newTeacher, (error, teacher) => {
+  //   if (err) {
+  //     res.json({ success: false, msg: 'Failed to register teacher' });
+  //   } else {
+  //     res.json({ success: true, msg: 'Teacher registered' });
+  //   }
+  // });
+  if (error) {
+    // res.json({ success: false, msg: 'Failed to register student' });
+    // console.log('err');
+    res.status(500).send(error)
+  } else {
+    res.send(teacher)
+    // res.json({ success: true, msg: 'Student registered' });
+  }
+   });
 });
 
 // Authenticate

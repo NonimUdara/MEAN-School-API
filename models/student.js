@@ -6,28 +6,36 @@ const config = require('../config/database');
 const StudentSchema = mongoose.Schema({
     name: {
         type: String,
+        required:true, 
     },
     index: {
         type: String,
+        required:true, 
+        unique: true
     },
     stream: {
         type: String,
+        required:true, 
     },
     year: {
         type: String,
+        required:true, 
     },
     email: {
         type: String,
+        required:true, 
     },
     nic: {
         type: String,
+        required:true, 
     },
     password: {
         type: String,
         required: true
     },
     userType: {
-        type: String
+        type: String,
+        required:true, 
     }
 });
 

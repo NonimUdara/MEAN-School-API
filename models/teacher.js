@@ -5,35 +5,45 @@ const config = require('../config/database');
 // User Teacher
 const TeacherSchema = mongoose.Schema({
     name: {
-        type: String
+        type: String,
+        required:true
     },
     gender: {
-        type: String
+        type: String,
+        required:true
     },
     age: {
-        type: String
+        type: String,
+        required:true
     },
     worked: {
-        type: String
+        type: String,
+        required:true
     },
     subject: {
-        type: String
+        type: String,
+        required:true
     },
     nic: {
-        type: String
+        type: String,
+        required:true
     },
     email: {
-        type: String
+        type: String,
+        required:true
     },
     username: {
-        type: String
+        type: String,
+        unique: true,
+        required:true
     },
     password: {
         type: String,
         required: true
     },
     userType: {
-        type: String
+        type: String,
+        required:true
     }
 });
 

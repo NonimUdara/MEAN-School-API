@@ -18,11 +18,14 @@ router.post('/register', (req, res, next) => {
     userType: "student"
   });
 
-  Student.addStudent(newStudent, (err, student) => {
-    if (err) {
-      res.json({ success: false, msg: 'Failed to register student' });
+  Student.addStudent(newStudent, (error, student) => {
+    if (error) {
+      // res.json({ success: false, msg: 'Failed to register student' });
+      // console.log('err');
+      res.status(500).send(error)
     } else {
-      res.json({ success: true, msg: 'Student registered' });
+      res.send(student)
+      // res.json({ success: true, msg: 'Student registered' });
     }
   });
 });
@@ -75,8 +78,7 @@ router.get('/profile', passport.authenticate('jwt', { session: false, name: "khg
       stream: req.user.stream,
       year: req.user.year,
       email: req.user.email,
-      nic: req.user.nic,
-      password: req.user.password
+      nic: req.user.nic
     }  
   });
 });
