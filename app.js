@@ -30,9 +30,7 @@ const arts = require('./routes/artroute');
 const commerce = require('./routes/commerceroute');
 const technology = require('./routes/technologyroute');
 const resources = require('./routes/resourceroute');
-
-// Port Number
-const port = 3000;
+const contactus = require('./routes/contactusroute');
 
 // CORS Middleware
 app.use(cors());
@@ -48,9 +46,6 @@ app.use(bodyParser.json());
 
 // Passport Middleware
 app.use(passport.initialize());
-// app.use((req,res,next)=>{
-//     next(createError(404));
-// });
 
 //app.use(passport.session());
 require('./config/passport')(passport);
@@ -63,16 +58,12 @@ app.use('/arts', arts);
 app.use('/commerce', commerce);
 app.use('/technology', technology);
 app.use('/resources', resources);
+app.use('/contactus', contactus);
 
 // Index Route
 app.get('/', (req, res) => {
     res.send('Invalid Endpoint');
 });
-
-// Start Server
-// app.listen(port, () => {
-//     console.log('Server started on port' +port);
-// })
 
 app.use(function(err, req, res, next){
     console.log(err.message);

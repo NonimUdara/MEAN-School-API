@@ -11,7 +11,7 @@ router.post('/register', (req, res, next) => {
     name: req.body.name,
     index: req.body.index,
     stream: req.body.stream,
-    year: req.body.year,
+    phone: req.body.phone,
     email: req.body.email,
     nic: req.body.nic,
     password: req.body.password,
@@ -56,7 +56,7 @@ router.post('/authenticate', (req, res, next) => {
             name: student.name,
             index: student.index,
             stream: student.stream,
-            year: student.year,
+            phone: student.phone,
             email: student.email,
             nic: student.nic
           }
@@ -76,7 +76,7 @@ router.get('/profile', passport.authenticate('jwt', { session: false, name: "khg
       name: req.user.name,
       index: req.user.index,
       stream: req.user.stream,
-      year: req.user.year,
+      phone: req.user.phone,
       email: req.user.email,
       nic: req.user.nic
     }  

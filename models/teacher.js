@@ -12,7 +12,7 @@ const TeacherSchema = mongoose.Schema({
         type: String,
         required:true
     },
-    age: {
+    phone: {
         type: String,
         required:true
     },

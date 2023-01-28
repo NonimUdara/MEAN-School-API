@@ -10,7 +10,7 @@ router.post('/register', (req, res, next) => {
   let newTeacher = new Teacher({
     name: req.body.name,
     gender: req.body.gender,
-    age: req.body.age,
+    phone: req.body.phone,
     worked: req.body.worked,
     subject: req.body.subject,
     nic: req.body.nic,
@@ -21,19 +21,11 @@ router.post('/register', (req, res, next) => {
   });
 
    Teacher.addTeacher(newTeacher, (error, teacher) => {
-  //   if (err) {
-  //     res.json({ success: false, msg: 'Failed to register teacher' });
-  //   } else {
-  //     res.json({ success: true, msg: 'Teacher registered' });
-  //   }
-  // });
+
   if (error) {
-    // res.json({ success: false, msg: 'Failed to register student' });
-    // console.log('err');
     res.status(500).send(error)
   } else {
     res.send(teacher)
-    // res.json({ success: true, msg: 'Student registered' });
   }
    });
 });
@@ -63,13 +55,13 @@ router.post('/authenticate', (req, res, next) => {
           teacher: {
             id: teacher._id,
             name: teacher.name,
-            // gender: teacher.gender,
-            // age: teacher.age,
-            // worked: teacher.worked,
-            // subject: teacher.subject,
-            // nic: teacher.nic,
-            // email: teacher.email,
-            // username: teacher.username,
+            gender: teacher.gender,
+            phone: teacher.phone,
+            worked: teacher.worked,
+            subject: teacher.subject,
+            nic: teacher.nic,
+            email: teacher.email,
+            username: teacher.username,
           }
         });
       } else {
@@ -86,7 +78,7 @@ router.get('/profile', passport.authenticate('jwt', { session: false, nameqqqq: 
       _id: req.user._id,
       name: req.user.name,
       gender: req.user.gender,
-      age: req.user.age,
+      phone: req.user.phone,
       worked: req.user.worked,
       subject: req.user.subject,
       nic: req.user.nic,
